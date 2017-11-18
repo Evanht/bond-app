@@ -1,15 +1,15 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
 import LoginForm from './components/LoginForm';
 import AppDescription from './components/AppDescription';
 
-class LoginPage extends React.Component {
+class LoginPage extends Component {
   render() {
     return (
       <div>
         <AppDescription />
-        <LoginForm />
+        <LoginForm toggleLoggedIn={this.props.toggleLoggedIn}/>
       </div>
     );
    }

@@ -14,6 +14,19 @@ import {
 } from 'react-router-dom'
 
 class App extends Component {
+  constructor() {
+    this.state = {
+      isLoggedIn: false,
+    }
+
+  this.toggleLoggedIn = this.toggleLoggedIn.bind(this)
+  }
+
+  toggleLoggedIn() {
+    this.setState({
+      isLoggedIn: true,
+    })
+  }
   /*componentDidMount() {
     api.authenticate({
       strategy: 'local',
@@ -31,8 +44,11 @@ class App extends Component {
     return (
       <Router className="App">
         <div>
-          <Route exact path="/" component={Home}/>
-          <Route path="/login" component={LoginPage}/>
+          {this.state.isLoggedIn ?
+            <Route exact path="/" component={Home}/>
+            :
+            <Route exact path="/" render={() => <LoginPage toggleLoggedIn={this.toggleLoggedIn} />}/>
+          }
         </div>
       </Router>
     );
