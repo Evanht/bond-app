@@ -1,11 +1,14 @@
+/*
 
 import React, { Component } from 'react';
+
+import { Form, Icon, Input, Button, Checkbox } from 'antd';
 
 class login extends React.Component {
 constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      email: '',
       password: ''
     };
 
@@ -24,7 +27,7 @@ constructor(props) {
   }
 
   handleSubmit(event) {
-    console.log("username: " + this.state.username);
+    console.log("email: " + this.state.email);
     console.log("password: " + this.state.password);
     event.preventDefault();
   }
@@ -33,11 +36,11 @@ constructor(props) {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Username:
+          Email:
           <input
-            name="username"
+            name="email"
             type="text"
-            value={this.state.username}
+            value={this.state.email}
             onChange={this.handleInputChange} />
         </label>
         <br />
@@ -56,3 +59,70 @@ constructor(props) {
 }
 
 export default login;
+
+*/
+
+
+
+
+
+
+
+
+import React from 'react';
+import { Form, Icon, Input, Button, Checkbox } from 'antd';
+const FormItem = Form.Item;
+
+class login extends React.Component {
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
+  }
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    return (
+      <Form onSubmit={this.handleSubmit} className="login-form">
+        <FormItem>
+          {getFieldDecorator('userName', {
+            rules: [{ required: true, message: 'Please input your username!' }],
+          })(
+            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
+          )}
+        </FormItem>
+        <FormItem>
+          {getFieldDecorator('password', {
+            rules: [{ required: true, message: 'Please input your Password!' }],
+          })(
+            <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />
+          )}
+        </FormItem>
+        <FormItem>
+          {getFieldDecorator('remember', {
+            valuePropName: 'checked',
+            initialValue: true,
+          })(
+            <Checkbox>Remember me</Checkbox>
+          )}
+          <a className="login-form-forgot" href="">Forgot password</a>
+          <Button type="primary" htmlType="submit" className="login-form-button">
+            Log in
+          </Button>
+          Or <a href="">register now!</a>
+        </FormItem>
+      </Form>
+    );
+  }
+}
+
+const WrappedNormalLoginForm = Form.create()(login);
+
+export default login;
+
+
+
+
+
