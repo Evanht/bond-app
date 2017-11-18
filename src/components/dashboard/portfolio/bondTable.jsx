@@ -11,7 +11,7 @@ const StyledTable = styled.div`
 const StyledTableHeader = styled.h2`
   letter-spacing: 1px;
   margin-bottom: 26px;
-  border-bottom: 1px solid #1C88C3;
+  ${'' /* border-bottom: 1px solid #1C88C3; */}
 `
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -19,7 +19,7 @@ const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 const BondTable = () => {
   return (
     <div>
-      <StyledTableHeader>My Portfolio</StyledTableHeader>
+      <StyledTableHeader>Your Portfolio</StyledTableHeader>
       <StyledTable>
         {map(array, bond => <BondCard key={bond} bond={bond} />)}
       </StyledTable>

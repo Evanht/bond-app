@@ -78,9 +78,9 @@ class SideMenu extends Component {
             <span>Settings</span>
           </Menu.Item>
         </StyledMenu>
-        <StyledCollapseButton type="primary" onClick={this.toggleCollapsed}>
+        {/* <StyledCollapseButton type="primary" onClick={this.toggleCollapsed}>
           <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
-        </StyledCollapseButton>
+        </StyledCollapseButton> */}
       </StyledMenuContainer>
     );
   }

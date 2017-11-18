@@ -6,7 +6,7 @@ import BondTable from './bondTable'
 import Graph from './graph.js';
 
 const PortfolioWrapper = styled.div`
-  border: 1px solid #FBFBFB;
+  ${'' /* border: 1px solid #FBFBFB; */}
   align-self: flex-end;
 `
 const StyledBondTable = styled(BondTable)`

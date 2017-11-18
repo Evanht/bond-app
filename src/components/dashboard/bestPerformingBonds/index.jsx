@@ -4,7 +4,7 @@ import { bonds } from '../../../api'
 import BondTable from './bondTable'
 
 const BestPerformingBondsWrapper = styled.div`
-  border: 1px solid #FBFBFB;
+  ${'' /* border: 1px solid #FBFBFB; */}
   align-self: flex-end;
 `
 const StyledBondTable = styled(BondTable)`
