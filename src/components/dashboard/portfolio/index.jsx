@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { bonds } from '../../../api'
 
+import Graph from './graph.js';
+
 const PortfolioWrapper = styled.div`
   background: red;
   border: 1px solid #FBFBFB;
@@ -28,6 +30,7 @@ class Portfolio extends Component {
       <PortfolioWrapper>
         This is the Portfolio section
       </PortfolioWrapper>
+      //<Graph />
     )
   }
 }
