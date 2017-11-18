@@ -3,6 +3,7 @@ import { Button } from 'antd';
 import styled from 'styled-components'
 import './App.css';
 import api, { bonds } from './api'
+import { TopNav, SideMenu } from './components'
 
 import LoginPage from './LoginPage';
 
