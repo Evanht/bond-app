@@ -42,7 +42,7 @@ constructor(props) {
         </label>
         <br />
         <label>
-          Password:
+          Number of guests:
           <input
             name="password"
             type="password"

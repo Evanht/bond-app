@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import './App.css';
 import api, { bonds } from './api'
 
-import login from './login';
+import LoginPage from './LoginPage';
 
 import {
   BrowserRouter as Router,
@@ -30,16 +30,8 @@ class App extends Component {
     return (
       <Router className="App">
         <div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/topics">Topics</Link></li>
-          </ul>
-
-          <hr/>
-
           <Route exact path="/" component={Home}/>
-          <Route path="/login" component={login}/>
+          <Route path="/login" component={LoginPage}/>
         </div>
       </Router>
     );
