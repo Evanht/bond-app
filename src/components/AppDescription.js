@@ -26,6 +26,10 @@ const Heading = styled.h1 `
   font-size: 40px;
 `
 
+const ListElement = styled.li `
+  padding-top: 10%;
+`
+
 
 class AppDescription extends React.Component {
   render() {
@@ -36,9 +40,9 @@ class AppDescription extends React.Component {
               We are Bondbase
             </Heading>
             <SummaryList>
-              <li>Down-to-earth trading</li>
-              <li>Low fees</li>
-              <li>Exit at any time</li>
+              <ListElement>Down-to-earth trading</ListElement>
+              <ListElement>Low fees</ListElement>
+              <ListElement>Exit at any time</ListElement>
             </SummaryList>
           </TextContainer>
         </Description>
