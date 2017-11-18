@@ -16,17 +16,30 @@ const TextContainer = styled.div `
   margin: 15px;
 `
 
+const SummaryList = styled.ul `
+  margin-left: 30px;
+  font-size: 25px;
+  list-style-type: circle;
+`
+
+const Heading = styled.h1 `
+  font-size: 40px;
+`
+
+
 class AppDescription extends React.Component {
   render() {
     return (
         <Description>
           <TextContainer>
-            <h1>
+            <Heading>
               We are Bondbase
-            </h1>
-            <h2>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id feugiat justo. Aliquam erat volutpat. Nunc id lorem eu massa commodo hendrerit at id risus. Donec molestie, justo id semper tristique, elit purus ornare nisi, ut suscipit sem lectus vel lacus. In hac habitasse platea dictumst. 
-            </h2>
+            </Heading>
+            <SummaryList>
+              <li>Down-to-earth trading</li>
+              <li>Low fees</li>
+              <li>Exit at any time</li>
+            </SummaryList>
           </TextContainer>
         </Description>
       );
