@@ -1,10 +1,17 @@
 import api from '../api';
+import styled from 'styled-components';
 
 import React, { Component } from 'react';
 
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
+
+
+const ContainerForm = styled.div `
+  margin-right: 10px;
+  width: 90%;
+`
 
 
 
@@ -47,34 +54,36 @@ constructor(props) {
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <FormItem>
-            <Input 
-              prefix={<Icon type="user" 
-              style={{ fontSize: 13 }} />} 
-              placeholder="Email" 
-              name="text"
-              type="text"
-              value={this.state.email}
-              onChange={this.handleInputChange}
-            />
-        </FormItem>
-        <br />
-        <FormItem>
-            <Input 
-              prefix={<Icon type="user" 
-              style={{ fontSize: 13 }} />} 
-              placeholder="Password" 
-              name="password"
-              type="password"
-              value={this.state.password}
-              onChange={this.handleInputChange}
-            />
-        </FormItem>
-        <Button type="primary" htmlType="submit" className="login-form-button">
-          Log in
-        </Button>
-      </Form>
+      <ContainerForm>
+        <Form onSubmit={this.handleSubmit}>
+          <FormItem>
+              <Input 
+                prefix={<Icon type="user" 
+                style={{ fontSize: 13 }} />} 
+                placeholder="Email" 
+                name="text"
+                type="text"
+                value={this.state.email}
+                onChange={this.handleInputChange}
+              />
+          </FormItem>
+          <br />
+          <FormItem>
+              <Input 
+                prefix={<Icon type="user" 
+                style={{ fontSize: 13 }} />} 
+                placeholder="Password" 
+                name="password"
+                type="password"
+                value={this.state.password}
+                onChange={this.handleInputChange}
+              />
+          </FormItem>
+          <Button type="primary" htmlType="submit" className="login-form-button">
+            Log in
+          </Button>
+        </Form>
+      </ContainerForm>
     );
    }
 }
