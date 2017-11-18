@@ -10,6 +10,7 @@
     "feathers-hooks": "^2.1.2",
     "feathers-socketio": "^2.0.1",
     "grid-styled": "^2.0.0-11",
+    "lodash": "^4.17.4",
     "react": "^16.0.0",
     "react-app-rewire-less": "^2.0.8",
     "react-app-rewired": "^1.3.4",
