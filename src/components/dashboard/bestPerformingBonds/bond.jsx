@@ -7,7 +7,7 @@ const BondCard = styled(Flex)`
   box-shadow: 0 0 0 0px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
   padding: 5px;
   width: 100%;
-  ${'' /* height: 80px; */}
+  height: 80px;
   margin-bottom: 10px;
 `
 const BondName = styled.h6`
@@ -18,24 +18,22 @@ const BondName = styled.h6`
 const Bond = ({ bond }) => {
   return (
     <BondCard wrap>
-      <Box width={1} px={1} py={1} align="center">
-        <Tooltip title="Number of days until you are paid">
-          <Progress percent={60} format={percent => `${percent}d`} />
+      <Box width={1} px={1} align="center">
+        <Tooltip title="Number of days until bond holders are paid">
+          <Progress percent={60} format={percent => `${percent}d` } />
         </Tooltip>
       </Box>
       <Box width={1/4} px={1} align="center">
-        <BondName>Angolan Infrastructure</BondName>
+        <BondName>Emerging coal</BondName>
       </Box>
       <Box width={1/4} px={1} align="center">
-        60 % of portfolio
+        15 % / year
       </Box>
       <Box width={1/4} px={1} align="center">
-        <Tooltip title="When the bond will mature">
-          11/01/2019
-        </Tooltip>
+         10 years
       </Box>
       <Box width={1/4} px={1} align="center">
-        $208
+        $100
       </Box>
     </BondCard>
   )

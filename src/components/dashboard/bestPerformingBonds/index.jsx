@@ -3,17 +3,15 @@ import styled from 'styled-components'
 import { bonds } from '../../../api'
 import BondTable from './bondTable'
 
-import Graph from './graph.js';
-
-const PortfolioWrapper = styled.div`
+const BestPerformingBondsWrapper = styled.div`
   border: 1px solid #FBFBFB;
   align-self: flex-end;
 `
 const StyledBondTable = styled(BondTable)`
-  width: 600px;
+  width: 400px;
 `
 
-class Portfolio extends Component {
+class BestPerformingBonds extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -28,12 +26,11 @@ class Portfolio extends Component {
 
   render() {
     return (
-      <PortfolioWrapper>
+      <BestPerformingBondsWrapper>
         <StyledBondTable />
-      </PortfolioWrapper>
-      //<Graph />
+      </BestPerformingBondsWrapper>
     )
   }
 }
 
-export default Portfolio
+export default BestPerformingBonds
