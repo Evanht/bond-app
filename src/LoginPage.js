@@ -15,15 +15,13 @@ const LoginContainer = styled.div`
   width: 100%;
 `
 
-const Box = styled.div `
+const LoginFlex = styled.div `
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
-  height: 50vh; 
-  width: 50%;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  border-radius: 5px;
+  width: 100%;
+  margin-top: 10%;
+  margin-bottom: 5%;
 `
 
 class LoginPage extends React.Component {
@@ -31,10 +29,10 @@ class LoginPage extends React.Component {
   render() {
     return (
       <LoginContainer>
-        <Box>
+        <LoginFlex>
           <AppDescription />
           <LoginForm />
-        </Box>
+        </LoginFlex>
       </LoginContainer>
     );
    }

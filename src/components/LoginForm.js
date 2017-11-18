@@ -9,10 +9,21 @@ const FormItem = Form.Item;
 
 
 const ContainerForm = styled.div `
-  margin-right: 10px;
-  width: 90%;
+  margin-right: 14%;
+  background-color: white;
+  min-height: 50vh; 
+  width: 35%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border-radius: 5px;
 `
 
+const Submit = styled(Button) `
+  width: 100%;
+`
+
+const Login = styled(Form) `
+  margin: 15px;
+`
 
 
 
@@ -21,7 +32,7 @@ class login extends React.Component {
 constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      email: '',
       password: ''
     };
 
@@ -40,7 +51,7 @@ constructor(props) {
   }
 
   handleSubmit(event) {
-    console.log("username: " + this.state.username);
+    console.log("email: " + this.state.email);
     console.log("password: " + this.state.password);
     
     api.authenticate({
@@ -55,13 +66,14 @@ constructor(props) {
   render() {
     return (
       <ContainerForm>
-        <Form onSubmit={this.handleSubmit}>
+        <Login onSubmit={this.handleSubmit}>
+          <h1>Login: </h1>
           <FormItem>
               <Input 
                 prefix={<Icon type="user" 
                 style={{ fontSize: 13 }} />} 
                 placeholder="Email" 
-                name="text"
+                name="email"
                 type="text"
                 value={this.state.email}
                 onChange={this.handleInputChange}
@@ -79,10 +91,10 @@ constructor(props) {
                 onChange={this.handleInputChange}
               />
           </FormItem>
-          <Button type="primary" htmlType="submit" className="login-form-button">
+          <Submit type="primary" htmlType="submit" className="login-form-button">
             Log in
-          </Button>
-        </Form>
+          </Submit>
+        </Login>
       </ContainerForm>
     );
    }
