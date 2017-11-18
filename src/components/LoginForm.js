@@ -18,8 +18,6 @@ const Submit = styled(Button) `
   width: 100%;
 `
 
-
-
 const Login = styled(Form) `
   margin: 15px;
 `
