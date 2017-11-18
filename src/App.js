@@ -41,9 +41,9 @@ class App extends Component {
       <Router className="App">
         <div>
           {this.state.isLoggedIn ?
-            <Route exact path="/" component={MainApp}/>
+            <Route path="/" component={MainApp}/>
             :
-            <Route exact path="/" render={() => <LoginPage toggleLoggedIn={this.toggleLoggedIn} />}/>
+            <Route path="/" render={() => <LoginPage toggleLoggedIn={this.toggleLoggedIn} />}/>
           }
         </div>
       </Router>
