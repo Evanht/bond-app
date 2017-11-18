@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import styled from 'styled-components'
 import './App.css';
 import api, { bonds } from './api'
-import { TopNav, SideMenu } from './components'
+import MainApp from './mainApp'
 
 import LoginPage from './LoginPage';
 
@@ -14,7 +14,8 @@ import {
 } from 'react-router-dom'
 
 class App extends Component {
-  constructor() {
+  constructor(props) {
+    super(props)
     this.state = {
       isLoggedIn: false,
     }
@@ -27,25 +28,20 @@ class App extends Component {
       isLoggedIn: true,
     })
   }
-  /*componentDidMount() {
-    api.authenticate({
-      strategy: 'local',
-      email: 'feathers@example.com',
-      password: 'secret'
+  componentDidMount() {
+    api.authenticate()
+    .then(({ accessToken }) => {
+      api.passport.verifyJWT(accessToken)
+        .then(response => response.userId && this.toggleLoggedIn())
     })
-    .then(() => {
-      bonds.find()
-      .then(response => console.log(response))
-      .catch(err => console.log(err))
-    })
-  }*/
+  }
 
   render() {
     return (
       <Router className="App">
         <div>
           {this.state.isLoggedIn ?
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={MainApp}/>
             :
             <Route exact path="/" render={() => <LoginPage toggleLoggedIn={this.toggleLoggedIn} />}/>
           }
@@ -54,11 +50,5 @@ class App extends Component {
     );
   }
 }
-
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
 
 export default App;

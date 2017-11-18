@@ -26,14 +26,19 @@ constructor(props) {
   }
 
   handleSubmit(event) {
-    console.log("username: " + this.state.username);
-    console.log("password: " + this.state.password);
-    
     api.authenticate({
       strategy: 'local',
       email: this.state.username,
       password: this.state.password
-    });
+    })
+      .then(({ accessToken }) => {
+        api.passport.verifyJWT(accessToken)
+          .then(response => response.userId && this.props.toggleLoggedIn())
+          .catch((err) => console.log('Error:', err))
+      })
+      .catch(err => {
+        console.log('Err', err)
+      })
 
     event.preventDefault();
   }
