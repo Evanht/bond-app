@@ -6,11 +6,14 @@ import AppDescription from './components/AppDescription';
 
 import styled from 'styled-components';
 
+import img from './components/01.jpg';
+
 const LoginContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #efefef;
+  background-image: url(${img});
   height: 100vh;
   width: 100%;
 `

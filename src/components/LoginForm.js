@@ -10,6 +10,7 @@ const ContainerForm = styled.div `
   min-height: 50vh; 
   width: 35%;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border-radius: 5px;
 `
 
 const Submit = styled(Button) `
@@ -28,7 +29,8 @@ const Inputs = styled.div `
 `
 
 const Heading = styled.h2 `
-  font-size: 25px;
+  text-align: center;
+  font-size: 40px;
 `
 
 class login extends React.Component {
