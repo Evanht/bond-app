@@ -1,6 +1,8 @@
 
 import React, { Component } from 'react';
 
+import api from '../api';
+
 class login extends React.Component {
 constructor(props) {
     super(props);
@@ -26,6 +28,13 @@ constructor(props) {
   handleSubmit(event) {
     console.log("username: " + this.state.username);
     console.log("password: " + this.state.password);
+    
+    api.authenticate({
+      strategy: 'local',
+      email: this.state.username,
+      password: this.state.password
+    });
+
     event.preventDefault();
   }
 

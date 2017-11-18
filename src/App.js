@@ -14,7 +14,7 @@ import {
 } from 'react-router-dom'
 
 class App extends Component {
-  componentDidMount() {
+  /*componentDidMount() {
     api.authenticate({
       strategy: 'local',
       email: 'feathers@example.com',
@@ -25,7 +25,7 @@ class App extends Component {
       .then(response => console.log(response))
       .catch(err => console.log(err))
     })
-  }
+  }*/
 
   render() {
     return (
