@@ -3,6 +3,7 @@ import { Button } from 'antd';
 import styled from 'styled-components'
 import './App.css';
 import api, { bonds } from './api'
+import { TopNav, SideMenu } from './components'
 
 class App extends Component {
   componentDidMount() {
@@ -21,7 +22,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Button type="primary">Button</Button>
+        <TopNav />
+        <SideMenu />
       </div>
     );
   }

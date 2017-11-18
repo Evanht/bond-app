@@ -1,0 +1,67 @@
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import { Menu, Icon, Button } from 'antd'
+
+const StyledMenuContainer = styled.div`
+  display: flex;
+`
+
+const StyledMenu = styled(Menu)`
+  height: 100vh;
+
+  && li {
+    line-height: 80px !important;
+    height: 80px !important;
+    font-family: Avenir Next;
+  }
+`
+
+const StyledCollapseButton = styled(Button)`
+  margin-left: 10px;
+  margin-top: 10px;
+`
+const StyledIcon = styled(Icon)`
+  font-size: 20px;
+`
+
+class SideMenu extends Component {
+  state = {
+    collapsed: false,
+  }
+  toggleCollapsed = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  }
+  render() {
+    return (
+      <StyledMenuContainer style={{ width: 240 }}>
+        <StyledMenu
+          defaultSelectedKeys={['1']}
+          defaultOpenKeys={['sub1']}
+          mode="inline"
+          // theme="dark"
+          inlineCollapsed={this.state.collapsed}
+        >
+          <Menu.Item key="1">
+            <StyledIcon type="area-chart" />
+            <span>Dashboard</span>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <StyledIcon type="swap" />
+            <span>Buy/Sell</span>
+          </Menu.Item>
+          <Menu.Item key="3">
+            <StyledIcon type="setting" />
+            <span>Settings</span>
+          </Menu.Item>
+        </StyledMenu>
+        <StyledCollapseButton type="primary" onClick={this.toggleCollapsed}>
+          <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
+        </StyledCollapseButton>
+      </StyledMenuContainer>
+    );
+  }
+}
+
+export default SideMenu
