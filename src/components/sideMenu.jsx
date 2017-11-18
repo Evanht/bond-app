@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Menu, Icon, Button } from 'antd'
+import { Icon, Button } from 'antd'
+import { NavLink } from 'react-router-dom'
+import Menu from './antMenu'
 
 const StyledMenuContainer = styled.div`
   display: flex;
 `
 
 const StyledMenu = styled(Menu)`
-  height: 100vh;
+  height: calc(100vh - 50px);
 
   && li {
     line-height: 80px !important;
@@ -22,6 +24,16 @@ const StyledCollapseButton = styled(Button)`
 `
 const StyledIcon = styled(Icon)`
   font-size: 20px;
+`
+const StyledNavLink = styled(NavLink)`
+  && {
+    color: black;
+  }
+
+  &&.selected {
+    letter-spacing: 1px;
+    color: white;
+  }
 `
 
 class SideMenu extends Component {
@@ -45,11 +57,21 @@ class SideMenu extends Component {
         >
           <Menu.Item key="1">
             <StyledIcon type="area-chart" />
-            <span>Dashboard</span>
+            <StyledNavLink
+              to="/dashboard"
+              activeClassName="selected"
+            >
+                <p>Dashboard</p>
+            </StyledNavLink>
           </Menu.Item>
           <Menu.Item key="2">
             <StyledIcon type="swap" />
-            <span>Buy/Sell</span>
+            <StyledNavLink
+              to="/buy"
+              activeClassName="selected"
+            >
+              Buy/Sell
+            </StyledNavLink>
           </Menu.Item>
           <Menu.Item key="3">
             <StyledIcon type="setting" />

@@ -1,8 +1,8 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 
 import LoginForm from './components/LoginForm';
-import AppDescription from './components/appDescription';
+import AppDescription from './components/AppDescription';
 
 import styled from 'styled-components';
 
@@ -25,19 +25,17 @@ const LoginFlex = styled.div `
 `
 
 class LoginPage extends React.Component {
-
   render() {
     return (
       <LoginContainer>
         <LoginFlex>
           <AppDescription />
-          <LoginForm />
+          <LoginForm toggleLoggedIn={this.props.toggleLoggedIn} />
         </LoginFlex>
       </LoginContainer>
-    );
+    )
    }
 }
 
-
-
 export default LoginPage;
+

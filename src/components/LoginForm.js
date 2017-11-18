@@ -1,12 +1,8 @@
 import api from '../api';
 import styled from 'styled-components';
-
 import React, { Component } from 'react';
-
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
-
-
 
 const ContainerForm = styled.div `
   margin-right: 14%;
@@ -24,9 +20,6 @@ const Submit = styled(Button) `
 const Login = styled(Form) `
   margin: 15px;
 `
-
-
-
 
 class login extends React.Component {
 constructor(props) {
@@ -51,14 +44,19 @@ constructor(props) {
   }
 
   handleSubmit(event) {
-    console.log("email: " + this.state.email);
-    console.log("password: " + this.state.password);
-    
     api.authenticate({
       strategy: 'local',
       email: this.state.email,
       password: this.state.password
-    });
+    })
+      .then(({ accessToken }) => {
+        api.passport.verifyJWT(accessToken)
+          .then(response => response.userId && this.props.toggleLoggedIn())
+          .catch((err) => console.log('Error:', err))
+      })
+      .catch(err => {
+        console.log('Err', err)
+      })
 
     event.preventDefault();
   }
