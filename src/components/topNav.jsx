@@ -12,7 +12,7 @@ const StyledNavWrapper = styled.div`
 `
 const BrandName = styled.h3`
   color: white;
-  font-family: Helvetica Neue;
+  font-family: Avenir Next;
   letter-spacing: 2px;
   font-size: 18px;
 `

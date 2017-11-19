@@ -21,7 +21,7 @@ const Submit = styled(Button) `
 
 const Login = styled(Form) `
   margin: 15px;
-  font-family: Helvetica Neue;
+  font-family: Avenir Next;
 `
 
 const Inputs = styled.div `
