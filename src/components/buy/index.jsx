@@ -9,7 +9,9 @@ import SellTable from './sellTable'
 
 
 const PageContainer = styled.div `
-	width: 90%;
+	margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
 `
 
 const BuySellBox = styled.div `
