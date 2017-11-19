@@ -1,11 +1,12 @@
 import React from 'react'
-import BuyBondCard from './buyBondCard'
+import BuyBondCard from './sellBondCard'
 import { map } from 'lodash'
 import styled from 'styled-components'
 
 const StyledTable = styled.div`
   overflow-y: auto;
   height: 400px;
+  
 `
 
 const StyledTableHeader = styled.h2`
@@ -16,10 +17,10 @@ const StyledTableHeader = styled.h2`
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-const BuyTable = () => {
+const SellTable = () => {
   return (
     <div>
-      <StyledTableHeader>Buy Bonds</StyledTableHeader>
+      <StyledTableHeader>Sell Bonds</StyledTableHeader>
       <StyledTable>
         {map(array, bond => <BuyBondCard key={bond} bond={bond} />)}
       </StyledTable>
@@ -27,4 +28,4 @@ const BuyTable = () => {
   )
 }
 
-export default BuyTable
+export default SellTable

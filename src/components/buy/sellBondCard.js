@@ -16,10 +16,10 @@ const BondCard = styled.div `
   justify-content: space-between;
 `
 
-const BuyButton = styled.button `
+const SellButton = styled.button `
   width: 20%;
   height: 100%;
-  background-color: #00A862;
+  background-color: #F33A39;
 `
 
 const Name = styled(Box) `
@@ -62,18 +62,18 @@ class Bond extends Component {
     });
   }
 
-  buyBond = (e) => {
+  sellBond = (e) => {
     console.log(e);
     this.setState({
       confirmVisible: false,
     });
     notification.open({
       message: 'Success',
-      description: 'You just bought a bond!',
+      description: 'You just sold a bond!',
     });
   }
 
-  cancelBond = (e) => {
+  cancelSell = (e) => {
     console.log(e);
     this.setState({
       confirmVisible: false,
@@ -109,26 +109,24 @@ class Bond extends Component {
           <Number width={1/10} px={1} align="center">
             5237
           </Number>
-          <BuyButton width={1/5} px={1} align="center" onClick={this.showModal}>
-            Buy
-          </BuyButton>
+          <SellButton width={1/5} px={1} align="center" onClick={this.showModal}>
+            Sell
+          </SellButton>
           <InfoButton width={1/10} px={1} align="center" onClick={this.info}>
             <Icon type="info" />
           </InfoButton>
         </BondCard>
 
         <Modal
-            title="Buy Bond"
+            title="Sell Bond"
             visible={this.state.confirmVisible}
-            onOk={this.buyBond}
-            onCancel={this.cancelBond}
+            onOk={this.sellBond}
+            onCancel={this.cancelSell}
             cancelText = "Cancel"
-            okText = "Buy"
+            okText = "Sell"
           >
-            <p>Are you sure you want to buy this bond??</p>
+            <p>Are you sure you want to sell this bond??</p>
           </Modal>
-
-          
       </div>
     )
   }
@@ -136,5 +134,4 @@ class Bond extends Component {
 }
 
 export default Bond
-
 
