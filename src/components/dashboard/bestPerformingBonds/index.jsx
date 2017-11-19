@@ -20,14 +20,20 @@ class BestPerformingBonds extends Component {
   }
 
   componentDidMount() {
-    bonds.find()
+    bonds.find({
+      query: {
+        $sort: {
+          createAt: -1,
+        }
+      }
+    })
       .then(response => this.setState({ bonds: response.data }))
   }
 
   render() {
     return (
       <BestPerformingBondsWrapper>
-        <StyledBondTable />
+        <StyledBondTable bonds={this.state.bonds}/>
       </BestPerformingBondsWrapper>
     )
   }
