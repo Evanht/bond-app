@@ -2,24 +2,26 @@ import api from '../api';
 import styled from 'styled-components';
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Box } from 'grid-styled'
 const FormItem = Form.Item;
 
-const ContainerForm = styled.div `
+const ContainerForm = styled(Box)`
   margin-right: 14%;
-  background-color: white;
-  min-height: 50vh; 
+  background-color: rgb(251,251,251);
+  min-height: 50vh;
   width: 35%;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   border-radius: 5px;
 `
 
 const Submit = styled(Button) `
-  margin-top: 10vh;
+  margin-top: 40px;
   width: 100%;
 `
 
 const Login = styled(Form) `
   margin: 15px;
+  font-family: Avenir Next;
 `
 
 const Inputs = styled.div `
@@ -73,15 +75,15 @@ constructor(props) {
 
   render() {
     return (
-      <ContainerForm>
+      <ContainerForm px={4}>
         <Login onSubmit={this.handleSubmit}>
-          <Heading>Login: </Heading>
+          <Heading>Login </Heading>
           <Inputs>
             <FormItem>
-                <Input 
-                  prefix={<Icon type="user" 
-                  style={{ fontSize: 13 }} />} 
-                  placeholder="Email" 
+                <Input
+                  prefix={<Icon type="user"
+                  style={{ fontSize: 13 }} />}
+                  placeholder="Email"
                   name="email"
                   type="text"
                   value={this.state.email}
@@ -90,10 +92,10 @@ constructor(props) {
             </FormItem>
             <br />
             <FormItem>
-                <Input 
-                  prefix={<Icon type="user" 
-                  style={{ fontSize: 13 }} />} 
-                  placeholder="Password" 
+                <Input
+                  prefix={<Icon type="lock"
+                  style={{ fontSize: 13 }} />}
+                  placeholder="Password"
                   name="password"
                   type="password"
                   value={this.state.password}

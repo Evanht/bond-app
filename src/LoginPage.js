@@ -6,7 +6,7 @@ import AppDescription from './components/AppDescription';
 
 import styled from 'styled-components';
 
-import img from './components/01.jpg';
+import img from './skyline_web.png';
 
 const LoginContainer = styled.div`
   display: flex;
@@ -14,6 +14,9 @@ const LoginContainer = styled.div`
   justify-content: center;
   background-color: #efefef;
   background-image: url(${img});
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
   height: 100vh;
   width: 100%;
 `
@@ -41,4 +44,3 @@ class LoginPage extends React.Component {
 }
 
 export default LoginPage;
-
