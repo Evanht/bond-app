@@ -71,8 +71,8 @@ const Menu = styled(AntdMenu)`
    }
 
    &&.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-     background-color: #1C88C3;
-     color: white;
+     ${'' /* background-color: #1C88C3; */}
+     color: #1C88C3;
    }
 
    &&.ant-menu-inline .ant-menu-item:after, .ant-menu-vertical .ant-menu-item:after {
