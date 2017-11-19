@@ -12,7 +12,7 @@ const StyledFlex = styled(Flex)`
   width: 100%;
   padding-top: 40px;
   overflow-y: auto;
-  background-color: #FBFBFB;
+  background-color: white;
 `
 const StyledHeaders = styled.h3`
   text-align: center;

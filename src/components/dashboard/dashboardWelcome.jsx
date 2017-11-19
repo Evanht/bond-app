@@ -9,7 +9,8 @@ const StyledWelcomeContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   height: 80px;
-  background-color: #EFF2F6;
+  border-bottom: 1px solid #1C88C3;
+  border-radius: 2px;
 `
 
 const data = [
