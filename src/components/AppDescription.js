@@ -13,7 +13,7 @@ const Description = styled(Box)`
 
 const TextContainer = styled.div `
   margin: 15px;
-  font-family: Avenir Next;
+  font-family: Helvetica Neue;
 `
 
 const SummaryList = styled.ul `

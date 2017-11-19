@@ -14,7 +14,7 @@ const StyledMenu = styled(Menu)`
   && li {
     line-height: 80px !important;
     height: 80px !important;
-    font-family: Avenir Next;
+    font-family: Helvetica Neue;
   }
 `
 
