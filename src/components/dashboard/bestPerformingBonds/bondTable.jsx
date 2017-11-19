@@ -4,8 +4,8 @@ import { map } from 'lodash'
 import styled from 'styled-components'
 
 const StyledTable = styled.div`
-  overflow-y: auto;
-  height: 400px;
+  ${'' /* overflow-y: auto;
+  height: 400px; */}
 `
 
 const StyledTableHeader = styled.h2`
@@ -14,14 +14,14 @@ const StyledTableHeader = styled.h2`
   border-bottom: 1px solid #1C88C3;
 `
 
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-const BondTable = () => {
+const BondTable = ({ bonds }) => {
   return (
     <div>
       <StyledTableHeader>Top Performers</StyledTableHeader>
       <StyledTable>
-        {map(array, bond => <BondCard key={bond} bond={bond} />)}
+        {map(bonds, (bond, index) => <BondCard key={bond._id} bond={bond} bondNumber={index} />)}
       </StyledTable>
     </div>
   )

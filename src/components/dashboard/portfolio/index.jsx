@@ -22,14 +22,18 @@ class Portfolio extends Component {
   }
 
   componentDidMount() {
-    bonds.find()
+    bonds.find({
+      query: {
+        $limit: 5,
+      }
+    })
       .then(response => this.setState({ bonds: response.data }))
   }
 
   render() {
     return (
       <PortfolioWrapper>
-        <StyledBondTable />
+        <StyledBondTable bonds={this.state.bonds} />
       </PortfolioWrapper>
       //<Graph />
     )
