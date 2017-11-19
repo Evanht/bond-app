@@ -8,7 +8,7 @@ import Graph from './graph.js';
 const PortfolioWrapper = styled.div`
   ${'' /* border: 1px solid #FBFBFB; */}
   align-self: flex-end;
-  padding-top: 10px;
+  padding-top: 30px;
 `
 const StyledBondTable = styled(BondTable)`
   width: 600px;

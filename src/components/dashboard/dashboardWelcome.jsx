@@ -9,7 +9,7 @@ const StyledWelcomeContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   height: 80px;
-  border-bottom: 1px solid #1C88C3;
+  border-bottom: 1px solid rgba(28,136,195, 0.2);
   border-radius: 2px;
 `
 
