@@ -22,9 +22,7 @@ class BestPerformingBonds extends Component {
   componentDidMount() {
     bonds.find({
       query: {
-        $sort: {
-          createAt: -1,
-        }
+        $skip: 49,
       }
     })
       .then(response => this.setState({ bonds: response.data }))

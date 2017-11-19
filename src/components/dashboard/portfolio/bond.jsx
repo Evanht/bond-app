@@ -52,7 +52,7 @@ const Bond = ({ bond, bondNumber }) => {
         </Tooltip>
       </Box>
       <Box width={1/4} px={1} align="center">
-        ${bond.marketDirtyPrice}
+        UGX {bond.marketDirtyPrice}
       </Box>
     </BondCard>
   )

@@ -24,7 +24,7 @@ const Card = styled(Flex)`
   margin-bottom: 10px;
 `
 const NumericValue = styled.h1`
-  font-size: 40px;
+  font-size: 36px;
   margin-left: 20px;
 `
 const PercentageChange = styled.h1`
@@ -40,12 +40,12 @@ const AccountInformation = () => (
   <StyledWrapper>
     <Card>
       <h6>Cash Account</h6>
-      <NumericValue>$1898</NumericValue>
+      <NumericValue>UGX 1898</NumericValue>
       <DepositButton>Deposit</DepositButton>
     </Card>
     <Card>
       <h6>Portfolio Value</h6>
-      <NumericValue>$2746</NumericValue>
+      <NumericValue>UGX 2746</NumericValue>
       <PercentageChange>+ 7.18%</PercentageChange>
     </Card>
     {/* <Card>

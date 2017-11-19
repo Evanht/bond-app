@@ -38,7 +38,7 @@ const Bond = ({ bond, bondNumber }) => {
          {sample(['3', '5', '7', '10', '12', '16', '20'])} years to maturity
       </Box>
       <Box width={1/4} px={1} align="center">
-        ${bond.marketDirtyPrice}
+        UGX {bond.marketDirtyPrice}
       </Box>
     </BondCard>
   )
