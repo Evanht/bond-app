@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Progress, Icon, Menu } from 'antd'
+import { Icon, Modal, Button, notification  } from 'antd'
 import { Flex, Box } from 'grid-styled'
 
 
@@ -16,7 +16,7 @@ const BondCard = styled.div `
   justify-content: space-between;
 `
 
-const BuyButton = styled.button `
+const SellButton = styled.button `
   width: 20%;
   height: 100%;
   background-color: #F33A39;
@@ -44,35 +44,93 @@ const Number = styled(Box) `
 const InfoButton = styled.button `
   width: 5%;
   height: 100%;
-  background-color: grey;
+  background-color: #BBB;
 `
 
 
-const Bond = ({ bond }) => {
-  return (
-    <div>
-      <BondCard>
-        <Name width={3/10} px={1} align="center">
-          Kenya Infrastructure
-        </Name>
-        <Percent width={1/5} px={1} align="center">
-          50 % of portfolio
-        </Percent>
-        <MatureTime width={1/10} px={1} align="center">
-          7 Years
-        </MatureTime>
-        <Number width={1/10} px={1} align="center">
-          5237
-        </Number>
-        <BuyButton width={1/5} px={1} align="center">
-          Sell
-        </BuyButton>
-        <InfoButton width={1/10} px={1} align="center" >
-          <Icon type="info" />
-        </InfoButton>
-      </BondCard>
-    </div>
-  )
+class Bond extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      confirmVisible: false
+    }
+  }
+
+  showModal = () => {
+    this.setState({
+      confirmVisible: true,
+    });
+  }
+
+  sellBond = (e) => {
+    console.log(e);
+    this.setState({
+      confirmVisible: false,
+    });
+    notification.open({
+      message: 'Success',
+      description: 'You just sold a bond!',
+    });
+  }
+
+  cancelSell = (e) => {
+    console.log(e);
+    this.setState({
+      confirmVisible: false,
+    });
+  }
+
+  info() {
+    Modal.info({
+      title: 'Info',
+      content: (
+        <div>
+          <p>Some info ab this ffuckin bond </p>
+        </div>
+      ),
+      okText: 'Ok',
+      onOk() {},
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <BondCard>
+          <Name width={3/10} px={1} align="center">
+            Kenya Infrastructure
+          </Name>
+          <Percent width={1/5} px={1} align="center">
+            50 % of portfolio
+          </Percent>
+          <MatureTime width={1/10} px={1} align="center">
+            7 Years
+          </MatureTime>
+          <Number width={1/10} px={1} align="center">
+            5237
+          </Number>
+          <SellButton width={1/5} px={1} align="center" onClick={this.showModal}>
+            Sell
+          </SellButton>
+          <InfoButton width={1/10} px={1} align="center" onClick={this.info}>
+            <Icon type="info" />
+          </InfoButton>
+        </BondCard>
+
+        <Modal
+            title="Sell Bond"
+            visible={this.state.confirmVisible}
+            onOk={this.sellBond}
+            onCancel={this.cancelSell}
+            cancelText = "Cancel"
+            okText = "Sell"
+          >
+            <p>Are you sure you want to sell this bond??</p>
+          </Modal>
+      </div>
+    )
+  }
+  
 }
 
 export default Bond
