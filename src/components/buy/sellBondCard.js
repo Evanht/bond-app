@@ -48,38 +48,43 @@ const InfoButton = styled.button `
   height: 100%;
   background-color: #BBB;
 `
-const percentages = [12, 41, 38, 22, 18, 6, 16, 12, 22, 12]
+const percentages = [38, 22, 18, 6, 16]
 const names = [
-  "Uganda Infrastructure XL",
-  "Zambia Government XL", 
-  "Uganda Infrastructure XL",
-  "Zambia Government XL", 
-  "Uganda Infrastructure XL",
-  "Zambia Government XL", 
-  "Uganda Infrastructure XL",
-  "Zambia Government XL", 
-  "Uganda Infrastructure XL",
-  "Zambia Government XL"
+  "Uganda Infrastructure",
+  "Uganda Wind", 
+  "Uganda Health",
+  "Uganda Renewables",
+  "Uganda Government",
 ]
+
+
 const days = [
-  21,  
-  10, 
-  24,
-  46, 
-  89
+  21,
+  46,  
+  89, 
+  10,
+  24
 ]
 const dates = [
-  '06/01/19',
-  '14/03/21',
   '11/12/19',
   '10/11/20',
   '09/07/18',
   '06/01/19',
-  '10/11/20',
-  '09/07/18',
-  '11/12/19',
   '14/03/21'
 ]
+
+const dirtyMarketPrice = [
+    132,
+    253,
+    664,
+    622,
+    364,
+    637,
+    467,
+    113,
+    663,
+    112
+] 
 
 class Bond extends Component {
   constructor(props) {
@@ -146,7 +151,7 @@ class Bond extends Component {
               </div>
              </Box>
             <Box width={1/10} px={1} align="center">
-              price
+                UGD {dirtyMarketPrice[this.props.bond - 1]}
             </Box>
             <Button width={1/10} px={1} align="center" onClick={this.showModal} type="danger">
               Sell

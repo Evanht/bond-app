@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Icon, Modal, Button, notification, Progress  } from 'antd'
+import { Icon, Modal, Button, notification, Progress, Input  } from 'antd'
 import { Flex, Box } from 'grid-styled'
 import { sample } from 'lodash'
 
@@ -42,36 +42,42 @@ const Number = styled(Box) `
 
 const percentages = [38, 22, 18, 6, 16, 12, 41, 12, 22, 12]
 const names = [
-  "Zambia Government XL", 
-  "Uganda Infrastructure XL",
-  "Zambia Government XL", 
-  "Uganda Infrastructure XL",
-  "Zambia Government XL", 
-  "Uganda Infrastructure XL",
-  "Zambia Government XL", 
-  "Uganda Infrastructure XL",
-  "Zambia Government XL", 
-  "Uganda Infrastructure XL"
+  "Uganda Government", 
+  "Uganda Infrastructure",
+  "Uganda Technology", 
+  "Uganda Construction",
+  "Uganda Water XL", 
+  "Uganda Power",
+  "Uganda Oil", 
+  "Uganda Wind",
+  "Uganda Health", 
+  "Uganda Renewables XL"
 ]
-const days = [
-  21, 
-  46, 
-  89, 
+const years = [
+  2, 
+  4, 
   10, 
-  24
+  3, 
+  12,
+  5,
+  6,
+  9,
+  3,
+  1
 ]
-const dates = [
-  '11/12/19',
-  '10/11/20',
-  '09/07/18',
-  '06/01/19',
-  '14/03/21',
-  '11/12/19',
-  '10/11/20',
-  '09/07/18',
-  '06/01/19',
-  '14/03/21'
-]
+
+const dirtyMarketPrice = [
+    622,
+    364,
+    637,
+    467,
+    113,
+    132,
+    253,
+    664,
+    663,
+    112
+] 
 
 class Bond extends Component {
   constructor(props) {
@@ -130,15 +136,15 @@ class Bond extends Component {
               <h2>{ names[this.props.bond - 1] }</h2>
             </Box>
             <Box width={2/10} px={1} align="center">
-              { percentages[this.props.bond - 1] } % of portfolio
+              { percentages[this.props.bond - 1] } % / year
             </Box>
             <Box width={2/10} px={1} align="center">
               <div>
-                { dates[this.props.bond - 1] }
+                { years[this.props.bond - 1] } years until maturity
               </div>
              </Box>
             <Box width={1/10} px={1} align="center">
-              price
+              UGD { dirtyMarketPrice[this.props.bond - 1] }
             </Box>
             <Button width={1/10} px={1} align="center" onClick={this.showModal} type="primary">
               Buy
@@ -157,7 +163,8 @@ class Bond extends Component {
             cancelText = "Cancel"
             okText = "Buy"
           >
-            <p>Are you sure you want to buy { names[this.props.bond - 1] }?</p>
+            <h2> How many bonds would you like to buy in  {names[this.props.bond - 1] }? </h2>
+            <Input type="number" placeholder="Quantity" />
           </Modal>
 
           
@@ -168,78 +175,4 @@ class Bond extends Component {
 }
 
 export default Bond
-
-
-
-
-
-
-
-
-
-
-
-/*
-import React from 'react'
-import styled from 'styled-components'
-import { Progress, Tooltip } from 'antd'
-import { sample } from 'lodash'
-import { Flex, Box } from 'grid-styled'
-import moment from 'moment'
-
-const BondCard = styled(Flex)`
-  box-shadow: 0 0 0 0px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
-  padding: 5px 5px 5px 0px;
-  background: white;
-  border-left: 4px solid ${({ color }) => color};
-  border-radius: 4px;
-  width: 100%;
-  margin-bottom: 10px;
-`
-const BondName = styled.h6`
-  color: black;
-  font-size: 14px;
-`
-const percentages = [38, 22, 18, 6, 16]
-const days = [21, 46, 89, 10, 24]
-const dates = [
-  '11/12/19',
-  '10/11/20',
-  '09/07/18',
-  '06/01/19',
-  '14/03/21',
-]
-
-const Bond = ({ bond, bondNumber }) => {
-  console.log(bondNumber)
-  return (
-    <BondCard wrap color={sample(['#FF4C4C', '#33F4AA', '#F9DC5C'])}>
-      <Box width={1} px={1} py={1} align="center">
-        <Tooltip title="Number of days until you are paid">
-          <Progress percent={days[bondNumber]} format={percent => `${percent}d`} />
-        </Tooltip>
-      </Box>
-      <Box width={1/4} px={1} align="center">
-        <BondName>{bond.name}</BondName>
-      </Box>
-      <Box width={1/4} px={1} align="center">
-        {percentages[bondNumber]} % of portfolio
-      </Box>
-      <Box width={1/4} px={1} align="center">
-        <Tooltip title="When the bond will mature">
-          <div>
-            {dates[bondNumber]}
-          </div>
-        </Tooltip>
-      </Box>
-      <Box width={1/4} px={1} align="center">
-        ${bond.marketDirtyPrice}
-      </Box>
-    </BondCard>
-  )
-}
-
-export default Bond
-*/
-
 
