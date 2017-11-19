@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Icon, Modal, Button, notification, Progress  } from 'antd'
 import { Flex, Box } from 'grid-styled'
-
+import { sample } from 'lodash'
 
 const BondCard = styled.div `
   box-shadow: 0 0 0 0px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
@@ -94,7 +94,7 @@ class Bond extends Component {
     });
     notification.open({
       message: 'Success',
-      description: 'You just bought a bond!',
+      description: `You just bought ${ names[this.props.bond - 1] }`,
     });
   }
 
@@ -121,23 +121,7 @@ class Bond extends Component {
   render() {
     return (
       <div>
-        {/*<BondCard>
-          <Name width={3/10} px={1} align="center">
-            { names[this.props.bond - 1] }
-          </Name>
-          <Percent width={1/5} px={1} align="center">
-            {percentages[this.props.bond - 1]} % of portfolio
-          </Percent>
-          <MatureTime width={1/10} px={1} align="center">
-            Date: { dates[this.props.bond - 1] }
-          </MatureTime>
-          <Number width={1/10} px={1} align="center">
-            5237
-          </Number>
-          
-        </BondCard>*/}
-
-        <BondCard wrap >
+        <BondCard wrap color={sample(['#FF4C4C', '#33F4AA', '#F9DC5C'])}>
           <Box width={1} px={1} py={1} align="center">
             <Progress percent={ percentages[this.props.bond - 1] } format={percent => `${percent}d`} />
           </Box>
@@ -173,7 +157,7 @@ class Bond extends Component {
             cancelText = "Cancel"
             okText = "Buy"
           >
-            <p>Are you sure you want to buy this bond??</p>
+            <p>Are you sure you want to buy { names[this.props.bond - 1] }?</p>
           </Modal>
 
           

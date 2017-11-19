@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Icon, Modal, Button, notification, Progress  } from 'antd'
 import { Flex, Box } from 'grid-styled'
-
+import { sample } from 'lodash'
 
 const BondCard = styled.div `
   box-shadow: 0 0 0 0px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
@@ -102,7 +102,7 @@ class Bond extends Component {
     });
     notification.open({
       message: 'Success',
-      description: 'You just sold a bond!',
+      description: `You just sold ${ names[this.props.bond -1]}!`,
     });
   }
 
@@ -118,7 +118,7 @@ class Bond extends Component {
       title: 'Info',
       content: (
         <div>
-          <p>Some info ab this ffuckin bond </p>
+          <p>Info about the bond</p>
         </div>
       ),
       okText: 'Ok',
@@ -129,29 +129,7 @@ class Bond extends Component {
   render() {
     return (
       <div>
-      { /* <div>
-        <BondCard>
-          <Name width={3/10} px={1} align="center">
-            Kenya Infrastructure
-          </Name>
-          <Percent width={1/5} px={1} align="center">
-            50 % of portfolio
-          </Percent>
-          <MatureTime width={1/10} px={1} align="center">
-            7 Years
-          </MatureTime>
-          <Number width={1/10} px={1} align="center">
-            5237
-          </Number>
-          <SellButton width={1/5} px={1} align="center" onClick={this.showModal}>
-            Sell
-          </SellButton>
-          <InfoButton width={1/10} px={1} align="center" onClick={this.info}>
-            <Icon type="info" />
-          </InfoButton>
-        </BondCard>
-      */ }
-        <BondCard wrap >
+        <BondCard wrap color={sample(['#FF4C4C', '#33F4AA', '#F9DC5C'])}>
           <Box width={1} px={1} py={1} align="center">
             <Progress percent={ percentages[this.props.bond - 1] } format={percent => `${percent}d`} />
           </Box>
@@ -170,8 +148,8 @@ class Bond extends Component {
             <Box width={1/10} px={1} align="center">
               price
             </Box>
-            <Button width={1/10} px={1} align="center" onClick={this.showModal} type="primary">
-              Buy
+            <Button width={1/10} px={1} align="center" onClick={this.showModal} type="danger">
+              Sell
             </Button>
             <Button width={1/10} px={1} align="center" onClick={this.info} type="dashed">
               <Icon type="info" />
@@ -187,7 +165,7 @@ class Bond extends Component {
             cancelText = "Cancel"
             okText = "Sell"
           >
-            <p>Are you sure you want to sell this bond??</p>
+            <p>Are you sure you want to sell { names[this.props.bond -1]}?? </p>
           </Modal>
       </div>
     )
