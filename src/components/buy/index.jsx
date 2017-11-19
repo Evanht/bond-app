@@ -2,16 +2,16 @@ import React, { Component} from 'react'
 
 import BuyTable from './buyTable'
 import styled from 'styled-components'
+import { Box } from 'grid-styled'
 
 import { Icon, Menu } from 'antd'
 
 import SellTable from './sellTable'
 
 
-const PageContainer = styled.div `
-	margin-left: 5%;
-  margin-right: 5%;
-  width: 90%;
+const PageContainer = styled(Box) `
+  overflow-y: auto;
+  width: 100%;
 `
 
 const BuySellBox = styled.div `
@@ -35,7 +35,7 @@ class Buy extends Component {
 
   render() {
     return (
-      <PageContainer> 
+      <PageContainer px={4}> 
         <Menu
           selectedKeys={[this.state.view]}
           onClick={this.handleClick}

@@ -3,11 +3,6 @@ import BuyBondCard from './sellBondCard'
 import { map } from 'lodash'
 import styled from 'styled-components'
 
-const StyledTable = styled.div`
-  overflow-y: auto;
-  height: 400px;
-  
-`
 
 const StyledTableHeader = styled.h2`
   letter-spacing: 1px;
@@ -21,9 +16,9 @@ const SellTable = () => {
   return (
     <div>
       <StyledTableHeader>Sell Bonds</StyledTableHeader>
-      <StyledTable>
+      <div>
         {map(array, bond => <BuyBondCard key={bond} bond={bond} />)}
-      </StyledTable>
+      </div>
     </div>
   )
 }
