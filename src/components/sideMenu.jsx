@@ -32,7 +32,7 @@ const StyledNavLink = styled(NavLink)`
 
   &&.selected {
     letter-spacing: 1px;
-    color: white;
+    ${'' /* color: white; */}
   }
 `
 
@@ -58,7 +58,7 @@ class SideMenu extends Component {
           <Menu.Item key="1">
             <StyledIcon type="area-chart" />
             <StyledNavLink
-              to="/dashboard"
+              to="/"
               activeClassName="selected"
             >
                 <p>Dashboard</p>
@@ -67,7 +67,7 @@ class SideMenu extends Component {
           <Menu.Item key="2">
             <StyledIcon type="swap" />
             <StyledNavLink
-              to="/buy"
+              to="/bonds"
               activeClassName="selected"
             >
               Buy/Sell

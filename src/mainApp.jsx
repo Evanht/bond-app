@@ -14,9 +14,9 @@ const MainApp = () => (
     <TopNav />
     <AppWrapper>
       <SideMenu />
-      <Route exact path="/dashboard" component={Dashboard}/>
-      <Route path="/buy" component={Buy}/>
-      <Route path="/sell" component={Sell}/>
+      <Route exact path="/" component={Dashboard}/>
+      <Route path="/bonds" component={Buy}/>
+      {/* <Route path="/sell" component={Sell}/> */}
     </AppWrapper>
   </div>
 )

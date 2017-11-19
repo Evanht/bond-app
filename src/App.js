@@ -10,7 +10,7 @@ import LoginPage from './LoginPage';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
 } from 'react-router-dom'
 
 class App extends Component {
