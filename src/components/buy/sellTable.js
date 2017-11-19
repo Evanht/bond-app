@@ -6,6 +6,7 @@ import styled from 'styled-components'
 const StyledTable = styled.div`
   overflow-y: auto;
   height: 400px;
+  
 `
 
 const StyledTableHeader = styled.h2`
